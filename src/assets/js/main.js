@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    //sliderItemMaxHeight();
 
     //sliders
     $('.what-is__slider').slick({
@@ -8,17 +7,16 @@ $(document).ready(function () {
     });
 
     //fancybox
-    $('a.fancybox').fancybox({
+    $('.fancybox').fancybox({
         closeBtn: true,
-        padding: [20, 20, 18, 20],
+        //minWidth: 430,
+        padding: 0,
         helpers: {
             overlay: {
                 css: {
                     'background': 'rgba(51,51,51,0.8)'
-                },
-
-            },
-            title: {type: 'inside'},
+                }
+            }
         }
     });
 
@@ -65,19 +63,3 @@ $(document).ready(function () {
     }
 
 });
-
-$(window).on('resize', function () {
-    //sliderItemMaxHeight();
-});
-
-function sliderItemMaxHeight() {
-    $('.what-is__item').css('height','').setMaxHeights();
-}
-
-$.fn.setMaxHeights = function () {
-    var maxHeight = this.map(function (i, e) {
-        return $(e).height();
-    }).get();
-
-    return this.height(Math.max.apply(this, maxHeight));
-};
