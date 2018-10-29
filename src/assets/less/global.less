@@ -1,0 +1,109 @@
+/* - - - - - - - - - - - - - - - - Global styles - - - - - - - - - - - - - - - -*/
+html {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    color: @main-color;
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    .rem(14);
+}
+
+h1 {
+    .rem(36);
+    font-weight: 900;
+}
+
+h2 {
+    .rem(20);
+    font-weight: 500;
+}
+
+h3 {
+    .rem(16);
+    font-weight: 500;
+}
+
+h3 {
+    .rem(13);
+    line-height: 19px;
+    font-weight: 500;
+}
+
+img {
+    max-width: 100%;
+}
+
+i, em {
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.slick-arrow {
+    cursor: pointer;
+}
+
+.btn {
+    height: 56px;
+    line-height: 56px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+    .rem(12);
+    padding: 0 30px;
+    border-radius: 30px;
+    letter-spacing: 0.08rem;
+    transition: box-shadow .1s;
+
+    &:hover {
+        box-shadow: 0 8px 10px 0 rgba(67, 203, 131, 0.22);
+    }
+}
+
+.btn-theme_green {
+    background: @green;
+    color: @white;
+}
+
+.bg-theme {
+    &_blue {
+        background-color: @blue;
+    }
+
+    &_green {
+        background-color: @green;
+    }
+
+    &_red {
+        background-color: @red;
+    }
+
+    &_yellow {
+        background-color: @yellow;
+    }
+}
