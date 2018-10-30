@@ -5,7 +5,29 @@ $(document).ready(function () {
     //sliders
     $('.what-is__slider').slick({
         slidesToShow: 4,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [{
+            breakpoint: 1201,
+            settings: {
+                slidesToShow: 3,
+                dots: true,
+                arrows: false
+            }
+        }, {
+            breakpoint: 900,
+            settings: {
+                slidesToShow: 2,
+                dots: true,
+                arrows: false
+            }
+        }, {
+            breakpoint: 900,
+            settings: {
+                slidesToShow: 1,
+                dots: true,
+                arrows: false
+            }
+        }]
     });
 
     //fancybox
