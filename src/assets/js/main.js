@@ -13,7 +13,6 @@ $(document).ready(function () {
                     arrows: false
                 }
             },
-
             {
                 breakpoint: 900,
                 settings: {
@@ -22,7 +21,6 @@ $(document).ready(function () {
                     arrows: false
                 }
             },
-
             {
                 breakpoint: 900,
                 settings: {
@@ -84,10 +82,55 @@ $(document).ready(function () {
     }
 
     for (var i = 0; i < pips.length; i++) {
-
-        // For this example. Do this in CSS!
         pips[i].style.cursor = 'pointer';
         pips[i].addEventListener('click', clickOnPip);
     }
 
+    pipsRange.noUiSlider.on('update', function (values, handle) {
+        countTariff(+values[handle]);
+        popupTariffTitle(+values[handle]);
+    });
 });
+
+//блок рассчета стоимости
+function countTariff(value) {
+    var $parentEl = $('.js_tariff-wrap'),
+        $subtotalEl = $parentEl.find('.tariff-plan__subtotal'),
+        $totalEl = $parentEl.find('.tariff-plan__total'),
+        $saleEl = $parentEl.find('.tariff-plan__sale'),
+        basePrice = getPrice(10),
+        subtotalValue, totalValue, saleValue;
+
+    //подсчет значений
+    totalValue = getPrice(value);
+    subtotalValue = value / 10 * basePrice;
+    saleValue = Math.round((totalValue - subtotalValue) / subtotalValue * 100);
+
+    //вставлям значения в DOM
+    $totalEl.text(totalValue + ' руб.');
+    $subtotalEl.text(subtotalValue + ' руб.');
+    $saleEl.text(saleValue + '%');
+
+    //скрываем элементы с нулевыми значениями
+    totalValue === subtotalValue ? $subtotalEl.addClass('hidden') : $subtotalEl.removeClass('hidden');
+    saleValue === 0 ? $saleEl.addClass('hidden') : $saleEl.removeClass('hidden');
+}
+
+//формула рассчета цены
+function getPrice(value) {
+    return Math.round((4870 + 200 * value) / 130);
+}
+
+//заголовок попапа с тарифами
+function popupTariffTitle(value) {
+    $('.popup__tariff-title').text(value + ' ' + declOfNum(value));
+}
+
+//склонение слова
+function declOfNum(number) {
+    var titles = ['товар', 'товара', 'товаров'],
+        cases = [2, 0, 1, 1, 1, 2];
+
+    return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+}
+

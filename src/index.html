@@ -101,15 +101,15 @@
             <div class="tariff-slider__title"><span>Сколько</span> у вас товаров?</div>
             <div id="pips-range"></div>
         </div>
-        <div class="tariff-plan">
+        <div class="tariff-plan js_tariff-wrap">
             <div class="tariff-plan__title">Стоимость <br>в месяц</div>
             <div class="tariff-plan__price">
-                <div class="tariff-plan__subtotal"><span>299</span> руб.</div>
-                <div class="tariff-plan__total"><span>199</span> руб.</div>
+                <div class="tariff-plan__subtotal">0 руб.</div>
+                <div class="tariff-plan__total">0 руб.</div>
             </div>
             <div class="tariff-plan__info">
-                <div class="tariff-plan__sale">-20%</div>
-                <div class="tariff-plan__sale-info"><span>30</span> товаров бесплатно</div>
+                <div class="tariff-plan__sale">0</div>
+                <div class="tariff-plan__sale-info">10 товаров бесплатно</div>
             </div>
             <a href="#popup-select-plan" class="tariff-plan__btn btn btn-theme_green fancybox">
                 выбрать план
@@ -296,10 +296,19 @@
 
 <div class="popup" id="popup-select-plan" style="display: none">
     <div class="popup-close"></div>
-    <div class="popup-side__title"></div>
 
     <form name="" action="" method="post" class="popup-form">
-        <div class="popup-append"></div>
+        <div class="popup__tariff-title"></div>
+        <div class="popup__tariff js_tariff-wrap">
+            <div class="tariff-plan__price">
+                <div class="tariff-plan__subtotal">0 руб.</div>
+                <div class="tariff-plan__total">0 руб.</div>
+            </div>
+            <div class="tariff-plan__info">
+                <div class="tariff-plan__sale">0</div>
+                <div class="tariff-plan__sale-info">10 товаров бесплатно</div>
+            </div>
+        </div>
 
         <div class="form-field-radio">
             <label class="radio">
